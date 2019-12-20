@@ -9,12 +9,21 @@
 /* Begin PBXBuildFile section */
 		F51AC5FE23AC92BF00252007 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC5FD23AC92BF00252007 /* AppDelegate.swift */; };
 		F51AC60023AC92BF00252007 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC5FF23AC92BF00252007 /* SceneDelegate.swift */; };
-		F51AC60223AC92BF00252007 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC60123AC92BF00252007 /* ViewController.swift */; };
 		F51AC60523AC92BF00252007 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51AC60323AC92BF00252007 /* Main.storyboard */; };
 		F51AC60723AC92C200252007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F51AC60623AC92C200252007 /* Assets.xcassets */; };
 		F51AC60A23AC92C200252007 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51AC60823AC92C200252007 /* LaunchScreen.storyboard */; };
 		F51AC61523AC92C200252007 /* ProductDomoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC61423AC92C200252007 /* ProductDomoTests.swift */; };
 		F51AC62023AC92C200252007 /* ProductDomoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC61F23AC92C200252007 /* ProductDomoUITests.swift */; };
+		F51AC62E23AC92DE00252007 /* Stub.json in Resources */ = {isa = PBXBuildFile; fileRef = F51AC62D23AC92DE00252007 /* Stub.json */; };
+		F51AC63123AC94F600252007 /* ProductsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC63023AC94F600252007 /* ProductsListViewModel.swift */; };
+		F51AC63323AC951200252007 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC63223AC951200252007 /* Product.swift */; };
+		F51AC63623AC96BA00252007 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC63523AC96BA00252007 /* JsonParser.swift */; };
+		F51AC63823AC971600252007 /* JsonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC63723AC971600252007 /* JsonLoader.swift */; };
+		F51AC63C23AC9BA200252007 /* ProductListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC63A23AC9BA200252007 /* ProductListTableViewCell.swift */; };
+		F51AC63D23AC9BA200252007 /* ProductListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F51AC63B23AC9BA200252007 /* ProductListTableViewCell.xib */; };
+		F51AC64023AC9F4700252007 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC63F23AC9F4700252007 /* ImageDownloader.swift */; };
+		F51AC64223ACA8F500252007 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC64123ACA8F500252007 /* ViewController.swift */; };
+		F51AC64823ACB3CF00252007 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC64723ACB3CF00252007 /* Response.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +47,6 @@
 		F51AC5FA23AC92BF00252007 /* ProductDomo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductDomo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51AC5FD23AC92BF00252007 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F51AC5FF23AC92BF00252007 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F51AC60123AC92BF00252007 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F51AC60423AC92BF00252007 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F51AC60623AC92C200252007 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F51AC60923AC92C200252007 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +57,16 @@
 		F51AC61B23AC92C200252007 /* ProductDomoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProductDomoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51AC61F23AC92C200252007 /* ProductDomoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDomoUITests.swift; sourceTree = "<group>"; };
 		F51AC62123AC92C200252007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F51AC62D23AC92DE00252007 /* Stub.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Stub.json; sourceTree = "<group>"; };
+		F51AC63023AC94F600252007 /* ProductsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewModel.swift; sourceTree = "<group>"; };
+		F51AC63223AC951200252007 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		F51AC63523AC96BA00252007 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
+		F51AC63723AC971600252007 /* JsonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonLoader.swift; sourceTree = "<group>"; };
+		F51AC63A23AC9BA200252007 /* ProductListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListTableViewCell.swift; sourceTree = "<group>"; };
+		F51AC63B23AC9BA200252007 /* ProductListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductListTableViewCell.xib; sourceTree = "<group>"; };
+		F51AC63F23AC9F4700252007 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		F51AC64123ACA8F500252007 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F51AC64723ACB3CF00252007 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +117,16 @@
 		F51AC5FC23AC92BF00252007 /* ProductDomo */ = {
 			isa = PBXGroup;
 			children = (
+				F51AC63923AC9B8800252007 /* SubViews */,
+				F51AC63423AC96A900252007 /* Utility */,
+				F51AC62F23AC94D600252007 /* ProductsList */,
 				F51AC5FD23AC92BF00252007 /* AppDelegate.swift */,
 				F51AC5FF23AC92BF00252007 /* SceneDelegate.swift */,
-				F51AC60123AC92BF00252007 /* ViewController.swift */,
 				F51AC60323AC92BF00252007 /* Main.storyboard */,
 				F51AC60623AC92C200252007 /* Assets.xcassets */,
 				F51AC60823AC92C200252007 /* LaunchScreen.storyboard */,
 				F51AC60B23AC92C200252007 /* Info.plist */,
+				F51AC62D23AC92DE00252007 /* Stub.json */,
 			);
 			path = ProductDomo;
 			sourceTree = "<group>";
@@ -126,6 +147,52 @@
 				F51AC62123AC92C200252007 /* Info.plist */,
 			);
 			path = ProductDomoUITests;
+			sourceTree = "<group>";
+		};
+		F51AC62F23AC94D600252007 /* ProductsList */ = {
+			isa = PBXGroup;
+			children = (
+				F51AC64123ACA8F500252007 /* ViewController.swift */,
+				F51AC63023AC94F600252007 /* ProductsListViewModel.swift */,
+				F51AC63223AC951200252007 /* Product.swift */,
+			);
+			path = ProductsList;
+			sourceTree = "<group>";
+		};
+		F51AC63423AC96A900252007 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				F51AC64623ACB3CF00252007 /* Response */,
+				F51AC63E23AC9F2B00252007 /* ImageDownloader */,
+				F51AC63523AC96BA00252007 /* JsonParser.swift */,
+				F51AC63723AC971600252007 /* JsonLoader.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		F51AC63923AC9B8800252007 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				F51AC63A23AC9BA200252007 /* ProductListTableViewCell.swift */,
+				F51AC63B23AC9BA200252007 /* ProductListTableViewCell.xib */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		F51AC63E23AC9F2B00252007 /* ImageDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				F51AC63F23AC9F4700252007 /* ImageDownloader.swift */,
+			);
+			path = ImageDownloader;
+			sourceTree = "<group>";
+		};
+		F51AC64623ACB3CF00252007 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				F51AC64723ACB3CF00252007 /* Response.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,9 +299,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F51AC63D23AC9BA200252007 /* ProductListTableViewCell.xib in Resources */,
 				F51AC60A23AC92C200252007 /* LaunchScreen.storyboard in Resources */,
 				F51AC60723AC92C200252007 /* Assets.xcassets in Resources */,
 				F51AC60523AC92BF00252007 /* Main.storyboard in Resources */,
+				F51AC62E23AC92DE00252007 /* Stub.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +328,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F51AC60223AC92BF00252007 /* ViewController.swift in Sources */,
+				F51AC63823AC971600252007 /* JsonLoader.swift in Sources */,
+				F51AC63C23AC9BA200252007 /* ProductListTableViewCell.swift in Sources */,
 				F51AC5FE23AC92BF00252007 /* AppDelegate.swift in Sources */,
+				F51AC64223ACA8F500252007 /* ViewController.swift in Sources */,
+				F51AC64823ACB3CF00252007 /* Response.swift in Sources */,
+				F51AC63623AC96BA00252007 /* JsonParser.swift in Sources */,
+				F51AC63323AC951200252007 /* Product.swift in Sources */,
+				F51AC63123AC94F600252007 /* ProductsListViewModel.swift in Sources */,
+				F51AC64023AC9F4700252007 /* ImageDownloader.swift in Sources */,
 				F51AC60023AC92BF00252007 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

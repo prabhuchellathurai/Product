@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum Response<T: Codable> {
+enum Response<T> {
     case Success(T), Failure(Error)
 }

@@ -8,8 +8,15 @@
 
 import UIKit
 
+
 class ProductListTableViewCell: UITableViewCell {
 
+    static let reuseIdentifier = "ProductListTableViewCell"
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var productImageView: UIImageView!
+    var product: Product!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +26,17 @@ class ProductListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func fillDetails() {
+        name.text = product.name
+        if product.offerPrice != nil {
+            price.text = product.offerPrice
+            price.textColor = UIColor.orange
+        } else {
+            price.text = product.price
+        }
+        productImageView.image = UIImage(named: "product_image")
     }
     
 }

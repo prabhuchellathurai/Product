@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class JsonParser {
+    
+    static func parse<T: Decodable>(data: Data) -> T {
+        let decoder = JSONDecoder()
+        let result = try! decoder.decode(T.self, from: data)
+        return result
+    }
+    
+}
