@@ -17,11 +17,12 @@ class ProductsListViewModel {
     
     func loadProducts() {
         
-        JsonLoader.load { (products: [Product]?, error: Error?) in
-            if products != nil {
-                self.products = products!
-                self.trigger?(self.products, error)
-            } else {
+        JsonLoader.loadGenerics { (res: Response<[Product]>) in
+            switch res {
+            case .Success(let products):
+                self.products = products
+                self.trigger?(self.products, nil)
+            case .Failure(let error):
                 self.trigger?([], error)
             }
         }
@@ -32,8 +33,10 @@ class ProductsListViewModel {
         return products.count
     }
     
-    func itemAtIndex(index: IndexPath) ->Product {
-        return products[index.row]
+    func itemAtIndex(index: IndexPath) -> ProductListCellViewModel {
+        let product = products[index.row]
+        let model = ProductListCellViewModel(product: product)
+        return model
     }
     
 }

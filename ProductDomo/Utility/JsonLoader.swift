@@ -10,6 +10,16 @@ import Foundation
 
 class JsonLoader {
     
+    static func load<T:Decodable>(filename: String) -> [T]? {
+        guard let path = Bundle.main.path(forResource: filename, ofType: "json") else {
+                    return nil
+                }
+                let url = URL(fileURLWithPath: path)
+                let data = try! Data(contentsOf: url, options: .dataReadingMapped)
+                let products: [T] = JsonParser.parse(data: data)
+                return products
+    }
+    
      static func load<T:Decodable>(block: @escaping  (T?, Error?) -> Void)  {
          
          let session = URLSession(configuration: .default)
@@ -25,15 +35,7 @@ class JsonLoader {
          }
          task.resume()
          
-         /*
-          guard let path = Bundle.main.path(forResource: "Stub", ofType: "json") else {
-             return nil
-         }
-         let url = URL(fileURLWithPath: path)
-         let data = try! Data(contentsOf: url, options: .dataReadingMapped)
-         let products: [T] = JsonParser.parse(data: data)
-         return products
-         */
+         
      }
     
     static func loadGenerics<T:Decodable>(block: @escaping  (Response<T>) -> Void)  {
@@ -42,7 +44,6 @@ class JsonLoader {
         let url = URL(string: "http://www.mocky.io/v2/5dfb59e72f00006200ff9e80")!
         let task = session.dataTask(with: url) { (data, response, error) in
             if data != nil {
-                //let data = try! Data(contentsOf: url, options: .dataReadingMapped)
                 let products: T = JsonParser.parse(data: data!)
                 block(Response.Success(products))
             } else {

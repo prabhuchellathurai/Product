@@ -12,31 +12,44 @@ import UIKit
 class ProductListTableViewCell: UITableViewCell {
 
     static let reuseIdentifier = "ProductListTableViewCell"
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var price: UILabel!
-    @IBOutlet weak var productImageView: UIImageView!
-    var product: Product!
+    @IBOutlet weak private var name: UILabel!
+    @IBOutlet weak private var price: UILabel!
+    @IBOutlet weak private var wishlist: UILabel!
+    @IBOutlet weak private var stepper: UIStepper!
+    @IBOutlet weak  private var productImageView: UIImageView!
+    var viewModel : ProductListCellViewModel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    }
+    
+    private func loadImage() {
+        viewModel.trigger = { [weak self] (image) in
+            DispatchQueue.main.async {
+                self?.productImageView.image = image
+            }
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+    @IBAction func favorite(sender: UIStepper) {
+        wishlist.text = "\(Int(sender.value))"
+        viewModel.addToWishlist(count: Int(sender.value))
+    }
+    
+    
     func fillDetails() {
-        name.text = product.name
-        if product.offerPrice != nil {
-            price.text = product.offerPrice
-            price.textColor = UIColor.orange
-        } else {
-            price.text = product.price
-        }
-        productImageView.image = UIImage(named: "product_image")
+        name.text = viewModel.name
+        price.text = viewModel.price
+        price.textColor = viewModel.color
+        productImageView.image = viewModel.image
+        let count = viewModel.getCount()
+        stepper.value = Double(count)
+        wishlist.text = "\(count)"
+        loadImage()
     }
     
 }

@@ -39,11 +39,10 @@ extension ViewController: UITableViewDataSource {
         return viewModel.count()
     }
     
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProductListTableViewCell.reuseIdentifier) as! ProductListTableViewCell
         let product = viewModel.itemAtIndex(index: indexPath)
-        cell.product = product
+        cell.viewModel = product
         cell.fillDetails()
         return cell
     }

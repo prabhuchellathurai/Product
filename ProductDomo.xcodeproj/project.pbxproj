@@ -24,6 +24,10 @@
 		F51AC64023AC9F4700252007 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC63F23AC9F4700252007 /* ImageDownloader.swift */; };
 		F51AC64223ACA8F500252007 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC64123ACA8F500252007 /* ViewController.swift */; };
 		F51AC64823ACB3CF00252007 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC64723ACB3CF00252007 /* Response.swift */; };
+		F51AC64A23ACC4D900252007 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC64923ACC4D900252007 /* ImageCache.swift */; };
+		F51AC64C23ACCBFC00252007 /* ProductListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC64B23ACCBFC00252007 /* ProductListCellViewModel.swift */; };
+		F51AC65523ACD6C600252007 /* WishlistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC65323ACD6C500252007 /* WishlistItem.swift */; };
+		F51AC65623ACD6C600252007 /* WishlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC65423ACD6C500252007 /* WishlistManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,10 @@
 		F51AC63F23AC9F4700252007 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		F51AC64123ACA8F500252007 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F51AC64723ACB3CF00252007 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		F51AC64923ACC4D900252007 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		F51AC64B23ACCBFC00252007 /* ProductListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCellViewModel.swift; sourceTree = "<group>"; };
+		F51AC65323ACD6C500252007 /* WishlistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishlistItem.swift; sourceTree = "<group>"; };
+		F51AC65423ACD6C500252007 /* WishlistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishlistManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +170,7 @@
 		F51AC63423AC96A900252007 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				F51AC65223ACD6C500252007 /* Wishlist */,
 				F51AC64623ACB3CF00252007 /* Response */,
 				F51AC63E23AC9F2B00252007 /* ImageDownloader */,
 				F51AC63523AC96BA00252007 /* JsonParser.swift */,
@@ -175,6 +184,7 @@
 			children = (
 				F51AC63A23AC9BA200252007 /* ProductListTableViewCell.swift */,
 				F51AC63B23AC9BA200252007 /* ProductListTableViewCell.xib */,
+				F51AC64B23ACCBFC00252007 /* ProductListCellViewModel.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -183,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				F51AC63F23AC9F4700252007 /* ImageDownloader.swift */,
+				F51AC64923ACC4D900252007 /* ImageCache.swift */,
 			);
 			path = ImageDownloader;
 			sourceTree = "<group>";
@@ -193,6 +204,15 @@
 				F51AC64723ACB3CF00252007 /* Response.swift */,
 			);
 			path = Response;
+			sourceTree = "<group>";
+		};
+		F51AC65223ACD6C500252007 /* Wishlist */ = {
+			isa = PBXGroup;
+			children = (
+				F51AC65323ACD6C500252007 /* WishlistItem.swift */,
+				F51AC65423ACD6C500252007 /* WishlistManager.swift */,
+			);
+			path = Wishlist;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,15 +348,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F51AC64A23ACC4D900252007 /* ImageCache.swift in Sources */,
 				F51AC63823AC971600252007 /* JsonLoader.swift in Sources */,
 				F51AC63C23AC9BA200252007 /* ProductListTableViewCell.swift in Sources */,
+				F51AC65523ACD6C600252007 /* WishlistItem.swift in Sources */,
 				F51AC5FE23AC92BF00252007 /* AppDelegate.swift in Sources */,
 				F51AC64223ACA8F500252007 /* ViewController.swift in Sources */,
+				F51AC65623ACD6C600252007 /* WishlistManager.swift in Sources */,
 				F51AC64823ACB3CF00252007 /* Response.swift in Sources */,
 				F51AC63623AC96BA00252007 /* JsonParser.swift in Sources */,
 				F51AC63323AC951200252007 /* Product.swift in Sources */,
 				F51AC63123AC94F600252007 /* ProductsListViewModel.swift in Sources */,
 				F51AC64023AC9F4700252007 /* ImageDownloader.swift in Sources */,
+				F51AC64C23ACCBFC00252007 /* ProductListCellViewModel.swift in Sources */,
 				F51AC60023AC92BF00252007 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
