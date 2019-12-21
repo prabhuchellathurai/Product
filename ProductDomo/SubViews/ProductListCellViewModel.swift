@@ -15,7 +15,7 @@ class ProductListCellViewModel {
     private var product: Product
     private var isloaded: Bool = false
     private var wishlistManager = WishlistManager.instance
-    private var productImage: UIImage? = UIImage(named: "product_image")
+    private var productImage: UIImage? = UIImage.placeHolder()
     var trigger: ImageTrigger?
     
     init(product: Product) {
@@ -37,7 +37,7 @@ class ProductListCellViewModel {
                     self?.productImage = image
                     self?.trigger?(image)
                 case .Failure(_):
-                    self?.productImage = UIImage(named: "product_image")
+                    self?.productImage = UIImage.placeHolder()
             }
         }
     }

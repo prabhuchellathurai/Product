@@ -22,4 +22,8 @@ final class ImageCache {
         return cache[url] ?? nil
     }
     
+    func imageForProduct(url: String) -> UIImage? {
+        return cache[url] ?? nil
+    }
+    
 }

@@ -37,4 +37,13 @@ class ProductsListViewModel {
         return model
     }
     
+    func indexOfItem(index: IndexPath) -> Product {
+        let product = products[index.row]
+        return product
+    }
+    
+    var allProducts: [Product] {
+        return products
+    }
+    
 }
