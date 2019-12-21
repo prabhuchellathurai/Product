@@ -10,34 +10,38 @@ import Foundation
 
 final class WishlistManager {
     
+    static let instance: WishlistManager = WishlistManager()
     private var list: [WishlistItem] = []
-    //private var userdefault: UserDefaults = UserDefaults.standard
+    private let userDefault: UserDefaults
     private let wishlistKey = "wishlist"
     
-    init() {
+    init(userDefault: UserDefaults = .standard) {
+        self.userDefault = userDefault
         fetchList()
     }
     
     private func fetchList() {
-        let userdefault: UserDefaults = UserDefaults.standard
-        let decoded  = userdefault.data(forKey: wishlistKey)
+        let decoded  = userDefault.data(forKey: wishlistKey)
         guard let decode = decoded else {
             return
         }
 
         list = NSKeyedUnarchiver.unarchiveObject(with: decode) as! [WishlistItem]
-        
     }
     
     func addToWishlist(pid: String, count: Int) {
-        
-        list.removeAll { (list) -> Bool in
-            list.pid == pid
+       let item = fetchProductUsing(pid: pid)
+        if let product = item {
+            product.count = count
+        } else {
+            let wishlist =  WishlistItem(pid: pid, count: count)
+            list.append(wishlist)
         }
         
-        let wishlist =  WishlistItem(pid: pid, count: count)
-        list.append(wishlist)
-        
+        saveList()
+    }
+    
+    private func saveList() {
         do {
             let userdefault: UserDefaults = UserDefaults.standard
             let encodedData: Data = try NSKeyedArchiver.archivedData(withRootObject: list, requiringSecureCoding: false)
@@ -50,14 +54,14 @@ final class WishlistManager {
     }
     
     func valueForItem(pid: String) -> WishlistItem {
-        let item = list.first(where: { $0.pid == pid})
+        let item = fetchProductUsing(pid: pid)
         guard let result = item else {
             return WishlistItem(pid: pid, count: 0)
         }
         return result
     }
     
-    private func isExist(pid: String) -> WishlistItem? {
+    private func fetchProductUsing(pid: String) -> WishlistItem? {
         let item = list.first(where: { $0.pid == pid})
         return item
     }

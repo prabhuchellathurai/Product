@@ -14,8 +14,8 @@ typealias ImageTrigger = (UIImage) -> Void
 class ProductListCellViewModel {
     private var product: Product
     private var isloaded: Bool = false
-    private var wishlistManager: WishlistManager = WishlistManager()
-    private var productImage: UIImage = UIImage(named: "product_image")!
+    private var wishlistManager = WishlistManager.instance
+    private var productImage: UIImage? = UIImage(named: "product_image")
     var trigger: ImageTrigger?
     
     init(product: Product) {
@@ -25,25 +25,28 @@ class ProductListCellViewModel {
     
     private func imageDownload() {
         
-        guard isloaded == false else {
+        guard !isloaded, let url = product.image else {
             return
         }
         
-        guard let url = product.image else {
-            return
-        }
+        isloaded = true
         
         ImageDownloader.downloadImage(url: url) { [weak self] (response: Response<UIImage>) in
-            self?.isloaded = true
             switch response {
                 case .Success(let image):
                     self?.productImage = image
                     self?.trigger?(image)
                 case .Failure(_):
-                    self?.productImage = UIImage(named: "product_image")!
+                    self?.productImage = UIImage(named: "product_image")
             }
         }
-        
+    }
+    
+    private func hasOffer() -> Bool {
+        guard let offerPrice = product.offerPrice, !offerPrice.isEmpty else {
+            return false
+        }
+        return true
     }
     
     var name: String {
@@ -51,31 +54,30 @@ class ProductListCellViewModel {
     }
     
     var price: String {
-        if product.offerPrice != nil {
-            return product.offerPrice!
-        } else {
+        guard let offerPrice = product.offerPrice, !offerPrice.isEmpty else {
             return product.price
         }
+        return offerPrice
     }
     
-    var image: UIImage {
+    var image: UIImage? {
         return productImage
     }
     
     var color: UIColor {
-        if product.offerPrice != nil {
-            return UIColor.orange
-        } else {
-            return UIColor.black
-        }
+        return hasOffer() ? .orange : .black
     }
     
     func addToWishlist(count: Int) {
         wishlistManager.addToWishlist(pid: product.pid, count: count)
     }
     
-    func getCount() -> Int {
+    var count: Int {
         let item = wishlistManager.valueForItem(pid: product.pid)
         return item.count
+    }
+    
+    var  stepperCount: Double {
+        return Double(count)
     }
 }

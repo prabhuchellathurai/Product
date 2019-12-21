@@ -11,12 +11,8 @@ import UIKit
 
 final class ImageCache {
     
-    static var instance: ImageCache = ImageCache()
+    static let instance: ImageCache = ImageCache()
     private var cache: [String: UIImage] = [:]
-    
-    private init() {
-        
-    }
     
     func addImage(url: String, image: UIImage) {
         cache[url] = image

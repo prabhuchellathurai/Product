@@ -46,9 +46,8 @@ class ProductListTableViewCell: UITableViewCell {
         price.text = viewModel.price
         price.textColor = viewModel.color
         productImageView.image = viewModel.image
-        let count = viewModel.getCount()
-        stepper.value = Double(count)
-        wishlist.text = "\(count)"
+        stepper.value = viewModel.stepperCount
+        wishlist.text = "\(viewModel.count)"
         loadImage()
     }
     

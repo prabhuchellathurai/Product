@@ -28,6 +28,7 @@
 		F51AC64C23ACCBFC00252007 /* ProductListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC64B23ACCBFC00252007 /* ProductListCellViewModel.swift */; };
 		F51AC65523ACD6C600252007 /* WishlistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC65323ACD6C500252007 /* WishlistItem.swift */; };
 		F51AC65623ACD6C600252007 /* WishlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC65423ACD6C500252007 /* WishlistManager.swift */; };
+		F51AC65823AD47FE00252007 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51AC65723AD47FE00252007 /* Errors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		F51AC64B23ACCBFC00252007 /* ProductListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCellViewModel.swift; sourceTree = "<group>"; };
 		F51AC65323ACD6C500252007 /* WishlistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishlistItem.swift; sourceTree = "<group>"; };
 		F51AC65423ACD6C500252007 /* WishlistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishlistManager.swift; sourceTree = "<group>"; };
+		F51AC65723AD47FE00252007 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				F51AC64723ACB3CF00252007 /* Response.swift */,
+				F51AC65723AD47FE00252007 /* Errors.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				F51AC64823ACB3CF00252007 /* Response.swift in Sources */,
 				F51AC63623AC96BA00252007 /* JsonParser.swift in Sources */,
 				F51AC63323AC951200252007 /* Product.swift in Sources */,
+				F51AC65823AD47FE00252007 /* Errors.swift in Sources */,
 				F51AC63123AC94F600252007 /* ProductsListViewModel.swift in Sources */,
 				F51AC64023AC9F4700252007 /* ImageDownloader.swift in Sources */,
 				F51AC64C23ACCBFC00252007 /* ProductListCellViewModel.swift in Sources */,

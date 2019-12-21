@@ -16,7 +16,6 @@ class ProductsListViewModel {
     var trigger: Trigger?
     
     func loadProducts() {
-        
         JsonLoader.loadGenerics { (res: Response<[Product]>) in
             switch res {
             case .Success(let products):
@@ -26,7 +25,6 @@ class ProductsListViewModel {
                 self.trigger?([], error)
             }
         }
-        
     }
     
     func count() -> Int {

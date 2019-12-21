@@ -20,8 +20,8 @@ class JsonLoader {
                 return products
     }
     
+    /*
      static func load<T:Decodable>(block: @escaping  (T?, Error?) -> Void)  {
-         
          let session = URLSession(configuration: .default)
          let url = URL(string: "http://www.mocky.io/v2/5dfb59e72f00006200ff9e80")!
          let task = session.dataTask(with: url) { (data, response, error) in
@@ -34,21 +34,20 @@ class JsonLoader {
              }
          }
          task.resume()
-         
-         
      }
+    */
     
     static func loadGenerics<T:Decodable>(block: @escaping  (Response<T>) -> Void)  {
         
         let session = URLSession(configuration: .default)
         let url = URL(string: "http://www.mocky.io/v2/5dfb59e72f00006200ff9e80")!
         let task = session.dataTask(with: url) { (data, response, error) in
-            if data != nil {
+            guard let err = error else {
                 let products: T = JsonParser.parse(data: data!)
                 block(Response.Success(products))
-            } else {
-                block(Response.Failure(error!))
+                return
             }
+            block(Response.Failure(err))
         }
         task.resume()
         

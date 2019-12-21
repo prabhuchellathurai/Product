@@ -21,17 +21,16 @@ class ViewController: UIViewController {
 
     private func setup() {
         title = "Products"
-        table.register(UINib(nibName: "ProductListTableViewCell", bundle: nil), forCellReuseIdentifier: ProductListTableViewCell.reuseIdentifier)
+        let nib = UINib(nibName: "ProductListTableViewCell", bundle: nil)
+        table.register(nib, forCellReuseIdentifier: ProductListTableViewCell.reuseIdentifier)
         viewModel.trigger = { [weak self] (products, error) in
             DispatchQueue.main.async {
-             self?.table.reloadData()
+                self?.table.reloadData()
             }
         }
     }
 
 }
-
-
 
 extension ViewController: UITableViewDataSource {
     
@@ -41,10 +40,18 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProductListTableViewCell.reuseIdentifier) as! ProductListTableViewCell
-        let product = viewModel.itemAtIndex(index: indexPath)
-        cell.viewModel = product
+        let productViewModel = viewModel.itemAtIndex(index: indexPath)
+        cell.viewModel = productViewModel
         cell.fillDetails()
         return cell
+    }
+    
+}
+
+extension ViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
