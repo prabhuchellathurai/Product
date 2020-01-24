@@ -9,5 +9,5 @@
 import Foundation
 
 enum Response<T> {
-    case Success(T), Failure(Error)
+    case success(T), failure(Error)
 }

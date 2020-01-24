@@ -9,5 +9,5 @@
 import Foundation
 
 enum Errors: Error {
-    case Invalid
+    case invalid
 }

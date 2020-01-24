@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var table: UITableView!
-    var viewModel : ProductsListViewModel = ProductsListViewModel()
+    var viewModel: ProductsListViewModel = ProductsListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,11 +53,11 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ProductListTableViewCell.reuseIdentifier) as! ProductListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProductListTableViewCell.reuseIdentifier) as? ProductListTableViewCell
         let productViewModel = viewModel.itemAtIndex(index: indexPath)
-        cell.viewModel = productViewModel
-        cell.fillDetails()
-        return cell
+        cell!.viewModel = productViewModel
+        cell!.fillDetails()
+        return cell!
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

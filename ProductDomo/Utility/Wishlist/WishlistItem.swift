@@ -9,7 +9,7 @@
 import Foundation
 
 class WishlistItem: NSObject, NSCoding {
-    let pid : String
+    let pid: String
     var count: Int
     
     init(pid: String, count: Int) {
@@ -18,9 +18,9 @@ class WishlistItem: NSObject, NSCoding {
     }
     
     required convenience init(coder aDecoder: NSCoder) {
-        let pid = aDecoder.decodeObject(forKey: "pid") as! String
+        let pid = aDecoder.decodeObject(forKey: "pid") as? String
         let count = aDecoder.decodeInteger(forKey: "count")
-        self.init(pid: pid, count: count)
+        self.init(pid: pid!, count: count)
     }
 
     func encode(with aCoder: NSCoder) {

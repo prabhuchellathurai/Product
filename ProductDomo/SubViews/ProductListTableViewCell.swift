@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class ProductListTableViewCell: UITableViewCell {
 
     static let reuseIdentifier = "ProductListTableViewCell"
@@ -17,7 +16,7 @@ class ProductListTableViewCell: UITableViewCell {
     @IBOutlet weak private var wishlist: UILabel!
     @IBOutlet weak private var stepper: UIStepper!
     @IBOutlet weak  private var productImageView: UIImageView!
-    var viewModel : ProductListCellViewModel!
+    var viewModel: ProductListCellViewModel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,7 +38,6 @@ class ProductListTableViewCell: UITableViewCell {
         wishlist.text = "\(Int(sender.value))"
         viewModel.addToWishlist(count: Int(sender.value))
     }
-    
     
     func fillDetails() {
         name.text = viewModel.name

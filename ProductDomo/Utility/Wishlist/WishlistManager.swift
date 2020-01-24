@@ -26,7 +26,8 @@ final class WishlistManager {
             return
         }
 
-        list = NSKeyedUnarchiver.unarchiveObject(with: decode) as! [WishlistItem]
+        let val = NSKeyedUnarchiver.unarchiveObject(with: decode) as? [WishlistItem]
+        list = val!
     }
     
     func addToWishlist(pid: String, count: Int) {

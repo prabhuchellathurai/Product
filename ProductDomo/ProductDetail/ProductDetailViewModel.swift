@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 class ProductDetailViewModel {
     
     private let product: Product

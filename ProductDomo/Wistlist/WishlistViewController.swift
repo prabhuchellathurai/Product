@@ -9,7 +9,6 @@
 import UIKit
 
 class WishlistViewController: UIViewController {
-
     
     @IBOutlet weak private var item: UILabel!
     @IBOutlet weak private var savings: UILabel!

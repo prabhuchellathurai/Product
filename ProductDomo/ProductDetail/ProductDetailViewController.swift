@@ -27,6 +27,5 @@ class ProductDetailViewController: UIViewController {
         desc.text = viewModel?.description
         productImageView.image = viewModel?.image
     }
-    
-    
+
 }

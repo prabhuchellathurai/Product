@@ -34,7 +34,7 @@ class WishlistViewModel {
         var offPrice = offerprice
         offPrice = offPrice.replaceSpecialCharacter()
         
-        if let price = Double(originalPrice),  let offer = Double(offPrice) {
+        if let price = Double(originalPrice), let offer = Double(offPrice) {
             return "\(price-offer)"
         }
         
@@ -47,7 +47,6 @@ class WishlistViewModel {
     }
     
 }
-
 
 extension String {
     

@@ -33,11 +33,11 @@ class ProductListCellViewModel {
         
         ImageDownloader.downloadImage(url: url) { [weak self] (response: Response<UIImage>) in
             switch response {
-                case .Success(let image):
-                    self?.productImage = image
-                    self?.trigger?(image)
-                case .Failure(_):
-                    self?.productImage = UIImage.placeHolder()
+            case .success(let image):
+                self?.productImage = image
+                self?.trigger?(image)
+            case .failure(let eror):
+                self?.productImage = UIImage.placeHolder()
             }
         }
     }

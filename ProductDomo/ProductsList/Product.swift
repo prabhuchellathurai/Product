@@ -16,7 +16,7 @@ class Product: Decodable {
     let image: String?
     let desc: String?
     
-    init(pid:String, name:String, price: String, offerPrice: String, desc: String, image: String?) {
+    init(pid: String, name: String, price: String, offerPrice: String, desc: String, image: String?) {
         self.pid = pid
         self.name = name
         self.price = price

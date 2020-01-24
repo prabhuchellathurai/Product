@@ -14,17 +14,17 @@ class ImageDownloader {
     static func downloadImage(url: String, block: @escaping  (Response<UIImage>) -> Void) {
         
         guard let newUrl = URL(string: url) else {
-            return block(Response.Failure(Errors.Invalid))
+            return block(Response.failure(Errors.invalid))
         }
         
         let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: newUrl) { (data, response, error) in
+        let task = session.dataTask(with: newUrl) { (data, _, _) in
             guard let data = data, let image = UIImage(data: data) else {
-                block(Response.Failure(Errors.Invalid))
+                block(Response.failure(Errors.invalid))
                 return
             }
             ImageCache.instance.addImage(url: url, image: image)
-            block(Response.Success(image))
+            block(Response.success(image))
         }
         
         task.resume()

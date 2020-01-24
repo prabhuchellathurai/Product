@@ -18,10 +18,10 @@ class ProductsListViewModel {
     func loadProducts() {
         JsonLoader.loadGenerics { (res: Response<[Product]>) in
             switch res {
-            case .Success(let products):
+            case .success(let products):
                 self.products = products
                 self.trigger?(self.products, nil)
-            case .Failure(let error):
+            case .failure(let error):
                 self.trigger?([], error)
             }
         }

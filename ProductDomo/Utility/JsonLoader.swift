@@ -10,13 +10,13 @@ import Foundation
 
 class JsonLoader {
     
-    static func load<T:Decodable>(filename: String) -> [T]? {
+    static func load<T: Decodable>(filename: String) -> [T]? {
         guard let path = Bundle.main.path(forResource: filename, ofType: "json") else {
                     return nil
                 }
                 let url = URL(fileURLWithPath: path)
-                let data = try! Data(contentsOf: url, options: .dataReadingMapped)
-                let products: [T] = JsonParser.parse(data: data)
+                let data = try? Data(contentsOf: url, options: .dataReadingMapped)
+                let products: [T] = JsonParser.parse(data: data!)
                 return products
     }
     
@@ -37,17 +37,17 @@ class JsonLoader {
      }
     */
     
-    static func loadGenerics<T:Decodable>(block: @escaping  (Response<T>) -> Void)  {
+    static func loadGenerics<T: Decodable>(block: @escaping  (Response<T>) -> Void) {
         
         let session = URLSession(configuration: .default)
         let url = URL(string: "http://www.mocky.io/v2/5dfb59e72f00006200ff9e80")!
-        let task = session.dataTask(with: url) { (data, response, error) in
+        let task = session.dataTask(with: url) { (data, _, error) in
             guard let err = error else {
                 let products: T = JsonParser.parse(data: data!)
-                block(Response.Success(products))
+                block(Response.success(products))
                 return
             }
-            block(Response.Failure(err))
+            block(Response.failure(err))
         }
         task.resume()
         
